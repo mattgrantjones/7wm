@@ -26,8 +26,8 @@ const Card: React.FC<Card> = ({ type, position, article }) => {
           position === "right" ? "sm:border-l-2 sm:pl-2" : ""
         }`;
       case "small":
-        return `border-b-2 sm:first:border-b-2 mb-6 sm:mb-0 sm:pl-2 ${
-          position === "top" ? "sm:border-b-2" : "sm-border-b-0"
+        return `border-b-2 mb-6 sm:mb-0 sm:pl-2 ${
+          position === "top" ? "sm:border-b-2" : "sm:border-b-0"
         }`;
     }
   };
