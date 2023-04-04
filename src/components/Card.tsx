@@ -18,7 +18,7 @@ const Card: React.FC<Card> = ({ type, position, article }) => {
   const getGridStyle = (type: CardDisplayType) => {
     switch (type) {
       case "hero":
-        return "col-span-3 row-span-2 mb-4 border-r-2 border-b-2";
+        return "max-h-fit col-span-3 row-span-2 mb-4 border-r-2 border-b-2";
       case "sub-hero":
         return "row-span-2 mb-4 border-b-2 pr-0";
       case "large":
@@ -36,7 +36,7 @@ const Card: React.FC<Card> = ({ type, position, article }) => {
   return (
     // Main Card
     <div
-      className={`flex relative gap-4 pt-0 pr-2
+      className={`flex justify-between relative gap-4 pt-0 pr-2
         ${getGridStyle(type)} ${type !== "hero" ? "flex-col" : ""}`}
     >
       {/* Article Image (shown above article, only for Sub-hero and Large articles */}
@@ -51,7 +51,11 @@ const Card: React.FC<Card> = ({ type, position, article }) => {
         />
       )}
       {/* Article Text: In a column flex box for all article types */}
-      <div className="flex flex-col gap-3 px-2 items-start flex-grow self-stretch">
+      <div
+        className={`${
+          type === "hero" ? "max-w-[50%] " : ""
+        } flex flex-col gap-3 px-2 items-start flex-grow`}
+      >
         <h1
           className={(type === "hero" ? "text-4xl" : "text-2xl") + " text-left"}
         >

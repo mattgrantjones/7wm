@@ -4,7 +4,7 @@ import { NewsGrid } from "./NewsGrid";
 import { Error } from "./Error";
 import { LoadingBlock } from "./LoadingBlock";
 
-export const NewsFeed: React.FC<{}> = () => {
+export const NewsFeedPage: React.FC<{}> = () => {
   const [newsFeedData, newsFeedError, newsFeedLoading] = getNewsFeed();
 
   // Error Block

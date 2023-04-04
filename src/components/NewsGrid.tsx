@@ -25,7 +25,7 @@ export const NewsGrid: React.FC<{ articles: NewsArticle[] }> = ({
   ];
 
   return (
-    <div id="main-grid" className="grid grid-cols-4 auto-rows-fr gap-2 w-full">
+    <div id="main-grid" className="grid grid-cols-4 auto-rows-min gap-2 w-full">
       {articles?.map((article, articleNumber, fullList) => {
         // From Article 7, render as a list in the ListBlock
         if (articleNumber === 6) {

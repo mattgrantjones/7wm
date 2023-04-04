@@ -1,10 +1,10 @@
 import "./App.css";
-import { NewsFeed } from "./components/NewsFeed";
+import { NewsFeedPage } from "./components/NewsFeedPage";
 
 const App = () => {
   return (
     <div className="App">
-      <NewsFeed />
+      <NewsFeedPage />
     </div>
   );
 };
