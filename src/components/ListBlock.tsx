@@ -7,7 +7,7 @@ const ListBlock: React.FC<{ articles: NewsArticle[] }> = ({ articles }) => {
         <div
           key={article.id}
           className={
-            "flex flex-col p-2 items-start flex-grow self-stretch " +
+            "flex flex-col mt-0 sm:px-2 pb-6 first:pt-0 pt-4 sm:pb-2 sm:pt-8 sm:first:pt-0 items-start flex-grow self-stretch " +
             (articleIndex < articles.length - 1 ? "border-b-2" : "")
           }
         >

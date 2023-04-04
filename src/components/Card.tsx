@@ -18,15 +18,17 @@ const Card: React.FC<Card> = ({ type, position, article }) => {
   const getGridStyle = (type: CardDisplayType) => {
     switch (type) {
       case "hero":
-        return "max-h-fit col-span-3 row-span-2 mb-4 border-r-2 border-b-2";
+        return "max-h-fit sm:col-span-3 sm:row-span-2 mb-4 sm:border-r-2 sm:border-b-2";
       case "sub-hero":
-        return "row-span-2 mb-4 border-b-2 pr-0";
+        return "border-t-2 pt-6 sm:pt-0 border-b-2 sm:border-t-0 sm:row-span-2 mb-8 sm:mb-4 sm:pr-0";
       case "large":
-        return `row-span-2 border-r-2 ${
-          position === "right" ? "border-l-2 pl-2" : ""
+        return `border-b-2 sm:border-b-0 mb-6 sm:mb-0 sm:row-span-2 sm:border-r-2 ${
+          position === "right" ? "sm:border-l-2 sm:pl-2" : ""
         }`;
       case "small":
-        return `pl-2 ${position === "top" ? "border-b-2" : ""}`;
+        return `border-b-2 mb-6 sm:mb-0 sm:pl-2 ${
+          position === "top" ? "sm:border-b-2" : "sm-border-b-0"
+        }`;
     }
   };
 
@@ -36,8 +38,10 @@ const Card: React.FC<Card> = ({ type, position, article }) => {
   return (
     // Main Card
     <div
-      className={`flex justify-between relative gap-4 pt-0 pr-2
-        ${getGridStyle(type)} ${type !== "hero" ? "flex-col" : ""}`}
+      className={`flex justify-between mb-2 pb-6 sm:pb-0 gap-6 sm:gap-4 pt-0 sm:pr-2
+        ${getGridStyle(type)} ${
+        type !== "hero" ? "flex-col" : "flex-col sm:flex-row"
+      }`}
     >
       {/* Article Image (shown above article, only for Sub-hero and Large articles */}
       {(type === "large" || type === "sub-hero") && (
@@ -53,8 +57,8 @@ const Card: React.FC<Card> = ({ type, position, article }) => {
       {/* Article Text: In a column flex box for all article types */}
       <div
         className={`${
-          type === "hero" ? "max-w-[50%] " : ""
-        } flex flex-col gap-3 px-2 items-start flex-grow`}
+          type === "hero" ? "max-w-full sm:max-w-[50%] " : ""
+        } flex flex-col gap-3 sm:px-2 items-start flex-grow`}
       >
         <h1
           className={(type === "hero" ? "text-4xl" : "text-2xl") + " text-left"}
@@ -74,7 +78,7 @@ const Card: React.FC<Card> = ({ type, position, article }) => {
       {/** Hero Image for "Hero" Article, shown to the right of text content */}
       {type === "hero" && !!article.image && (
         <div
-          className="flex-grow w-full h-full"
+          className="flex-grow w-full h-80 sm:h-full"
           style={{
             backgroundImage: `url("${imageURL}")`,
             backgroundSize: "cover",
