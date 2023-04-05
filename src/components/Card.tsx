@@ -65,7 +65,9 @@ const Card: React.FC<Card> = ({ type, position, article }) => {
         >
           {article.head}
         </h1>
-        <p className="text-left text-lg">{article.teaser}</p>
+        {type !== "sub-hero" && (
+          <p className="text-left text-lg">{article.teaser}</p>
+        )}
         <h2
           className={
             "text-lg mb-4 font-semibold " +
